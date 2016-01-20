@@ -20,11 +20,16 @@ $( document ).ready(function() {
         "&near=nyc" +
         "&query=pizza",
         function(data) { 
+            console.log(data["response"]["venues"][0]["name"]);
             
-            
-            console.log(data["response"]["venues"][0]["name"]["contact"]["phone"]);
+            console.log(data["response"]["venues"][0]["contact"]["phone"]);
+            console.log(data["response"]["venues"][0]["location"]["address"]);
+    
+           
             // Callback code goes here. This gets executed after receiving data from the Foursquare API.
-           // $("#results").append(answers);
+            $("#results").append(data["response"]["venues"][0]["name"]);
+            $("#results").append(data["response"]["contact"][0]["phone"]);
+            $("#results").append(data["response"]["venues"][0]["location"]["address"]);
         });
     
   })});
